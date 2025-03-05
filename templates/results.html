@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Image Recognition & Nutrition Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800">
+    <div class="bg-yellow-400 text-gray-800 text-center py-8">
+        <h1 class="text-4xl font-bold">Results</h1>
+    </div>
+    <div class="container mx-auto my-8 space-y-8">
+        {% for p in pack %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white p-4 shadow-md rounded-md">
+                <img src="{{ p.image }}" alt="Food Image" class="mx-auto" width="400" height="400" />
+            </div>
+            <div class="bg-white p-4 shadow-md rounded-md">
+                <h3 class="text-xl font-semibold mb-2">Prediction</h3>
+                {% if p.result %}
+                    {% set highest_prediction = (p.result.items() | sort(attribute=1) | list)[-1] %}
+                    <p class="text-3xl font-bold">Predicted Food: {{ highest_prediction[0] }}</p>  
+                {% else %}
+                    <p class="text-3xl font-bold">Prediction Failed</p>   
+                {% endif %}
+                <h3 class="text-xl font-semibold mb-2">Nutrition Facts (per 100g)</h3>
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="border px-4 py-2">Nutrient</th>
+                            <th class="border px-4 py-2">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nutrient in p.nutrition %}
+                        <tr>
+                            <td class="border px-4 py-2">{{ nutrient.name }}</td>
+                            <td class="border px-4 py-2">{{ nutrient.value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="bg-white p-4 shadow-md rounded-md mt-8">
+            <h3 class="text-xl font-semibold mb-2">Total Calories</h3>
+            <p>Total calories for all uploaded images: {{ total_calories }} calories (per 100g)</p>
+        </div>
+    </div>
+</body>
+</html>
