@@ -26,7 +26,7 @@
 * The system takes food images as input, identifies the food item using image recognition, and provides nutritional information.
 * This system can be used in various applications, including personal health tracking and dietary analysis.
 * We use a Convolutional Neural Network (CNN) for image recognition and a custom CSV for nutritional data.
-* The model was trained using Google Colab.
+  
 
 ### Built With
 
@@ -54,13 +54,13 @@ Nutritional Information Source: `nutrition101.csv`
 
 ### Demo
 
-![demo](.images/Demo.jpg)
+(projectResults.jpg)
 
 ## Contact
 
-[![LinkedIn](https://api.iconify.design/openmoji:linkedin.svg?width=40&height=40)](https://www.linkedin.com/in/nikhil-chakravarthy-064504203/)
+[![LinkedIn](https://api.iconify.design/openmoji:linkedin.svg?width=40&height=40)](https://www.linkedin.com/in/sudheer-ayinavilli/)
 
-Nikhil Chakravarthy - [Portfolio](https://nikhilchakravarthy.netlify.app)
+Sudheer - [Portfolio]
 
 ## References
 
