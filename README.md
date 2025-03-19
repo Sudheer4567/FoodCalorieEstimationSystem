@@ -54,7 +54,7 @@ Nutritional Information Source: `nutrition101.csv`
 
 ### Demo
 
-(projectResults.jpg)
+![Project Results](projectResults.jpg)
 
 ## Contact
 
